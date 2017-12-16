@@ -34,7 +34,7 @@ namespace GildedRose.Console
 
         }
 
-        public void UpdateQuality()
+        public void UpdateQuality() 
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -114,11 +114,12 @@ namespace GildedRose.Console
 
     public class Item
     {
-        public string Name { get; set; }
+        public string Name { get; set; } 
 
-        public int SellIn { get; set; }
+        public int SellIn { get; set; } 
 
-        public int Quality { get; set; }
+        public int Quality { get; set; } 
+
     }
 
 }
