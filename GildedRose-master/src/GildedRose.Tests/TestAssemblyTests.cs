@@ -1,9 +1,9 @@
 using Xunit;
 using GildedRose.Console;
-using System.Collections.Generic;
 
 namespace GildedRose.Tests
 {
+
     public class TestAssemblyTests
     {
         [Fact]
@@ -14,7 +14,7 @@ namespace GildedRose.Tests
 
     }
 
-    public static class TestingItems
+    public static class TestItems
     {
         public static Item StandardItem
         {
@@ -37,8 +37,8 @@ namespace GildedRose.Tests
                 return new Item
                 {
                     Name = "Aged Brie",
-                    SellIn = 20,
-                    Quality = 20
+                    SellIn = 2,
+                    Quality = 0
                 };
             }
         }
@@ -68,15 +68,21 @@ namespace GildedRose.Tests
                 };
             }
         }
+
+        public static Item ConjuredItem
+        {
+            get
+            {
+                return new Item
+                {
+                    Name = "Conjured Mana Cake",
+                    SellIn = 3,
+                    Quality = 6
+                };
+            }
+        }
+
     }
 
-    //public class StandardItemTests
-
-    public class ImmortalItemTests // For the Sulfuras item that doesn't age
-    {
-
-
-    }
-
-    
+       
 }
