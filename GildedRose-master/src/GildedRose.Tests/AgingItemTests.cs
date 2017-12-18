@@ -29,9 +29,9 @@ namespace GildedRose.Tests
         public void IncreaseQualityBeyondMax()
         {
             Item item = TestItems.AgingItem;
-            item.Quality = 50;
+            item.Quality = ItemBehaviorBase.MAX_Quality;
             SetItem(item);
-            Assert.Equal(50, testItem.Quality);
+            Assert.Equal(ItemBehaviorBase.MAX_Quality, testItem.Quality);
         }
         [Fact]
         public void ExpiredIncreaseQualityTwice()
@@ -46,10 +46,10 @@ namespace GildedRose.Tests
         public void ExpiredIncreaseQualityBeyondMax()
         {
             Item item = TestItems.AgingItem;
-            item.Quality = 50;
+            item.Quality = ItemBehaviorBase.MAX_Quality;
             item.SellIn = -1;
             SetItem(item);
-            Assert.Equal(50, testItem.Quality);
+            Assert.Equal(ItemBehaviorBase.MAX_Quality, testItem.Quality);
         }
     }
 }
