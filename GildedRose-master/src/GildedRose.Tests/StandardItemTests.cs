@@ -9,7 +9,7 @@ namespace GildedRose.Tests
         public void StandardItemDecreaseInQuality()
         {
             SetItem(TestItems.StandardItem);
-            Assert.Equal(0, testItem.Quality);
+            Assert.Equal(19, testItem.Quality);
         }
 
         [Fact]
