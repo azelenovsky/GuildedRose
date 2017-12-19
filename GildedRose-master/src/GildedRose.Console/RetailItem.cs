@@ -22,7 +22,6 @@
 
         public void Update()
         {
-            //UpdateItemQuality();
             UpdateQuality();
             UpdateSellIn();
         }

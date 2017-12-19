@@ -28,6 +28,7 @@ namespace GildedRose.Tests
             Assert.Equal(19, testItem.SellIn);
         }
 
+        [Fact]
         public void StandardItemDecreaseSellInFurther()
         {
             Item item = TestItems.StandardItem;
@@ -37,6 +38,7 @@ namespace GildedRose.Tests
             Assert.Equal(-2, testItem.SellIn);
         }
 
+        [Fact]
         public void ExpiredStandardItemQualityDecrease2x()
         {
             Item item = TestItems.StandardItem;
@@ -47,6 +49,7 @@ namespace GildedRose.Tests
             Assert.Equal(8, testItem.Quality);
         }
 
+        [Fact]
         public void ExpiredStandardItemQualityPositive ()
         {
             Item item = TestItems.StandardItem;
