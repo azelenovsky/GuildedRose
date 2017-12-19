@@ -10,8 +10,8 @@ namespace GildedRose.Console
             System.Console.WriteLine("OMGHAI!");
 
             var app = new Program()
-                          {
-                              Items = new List<Item>
+            {
+                Items = new List<Item>
                                           {
                                               new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                                               new Item {Name = "Aged Brie", SellIn = 2, Quality = 0},
@@ -26,7 +26,7 @@ namespace GildedRose.Console
                                               new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
                                           }
 
-                          };
+            };
 
 
             app.UpdateQuality();
@@ -35,107 +35,16 @@ namespace GildedRose.Console
 
         }
 
-        
         public void UpdateQuality()
         {
             foreach (var item in Items)
             {
-                UpdateItemQuality(item);
-                UpdateSellIn(item);
+                var retailItem = RetailFactory.CreateItem(item);
+                retailItem.Update();
             }
-        }
-        public void UpdateSellIn(Item item)
-        {
-            if (!IsImmortal(item))
-            {
-                item.SellIn--;
-            }
-        }
-        private void UpdateItemQuality(Item item)
-        {
-            if (IsAging(item))
-            {
-                UpdateAgingItemQuality(item);
-            }
-            else if (IsConcert(item))
-            {
-                UpdateConcertItemQuality(item);
-            }
-            else if (IsConjured(item))
-            {
-                UpdateConjuredItemQuality(item);
-            }
-            else if (!IsImmortal(item))
-            {
-                UpdateStandartItemQuality(item);
-            }
-        }
-        private void UpdateAgingItemQuality(Item item)
-        {
-            IncreaseQuality(item);
-            if (IsExpired(item))
-            {
-                IncreaseQuality(item);
-            }
-        }
-        private void UpdateConcertItemQuality(Item item)
-        {
-            IncreaseQuality(item);
-            if (item.SellIn < 11)
-            {
-                IncreaseQuality(item);
-            }
-            if (item.SellIn < 6)
-            {
-                IncreaseQuality(item);
-            }
-            if (item.SellIn < 0)
-            {
-                item.Quality = 0;
-            }
-        }
-        private void UpdateStandartItemQuality(Item item)
-        {
-            DecreaseQuality(item);
-            if (item.SellIn < 0)
-                DecreaseQuality(item);
-        }
-        private void UpdateConjuredItemQuality(Item item)
-        {
-            UpdateStandartItemQuality(item);
-            UpdateStandartItemQuality(item);
-        }
-        private bool IsImmortal(Item item)
-        {
-            return item.Name.Equals("Sulfuras, Hand of Ragnaros");
-        }
-        private bool IsAging(Item item)
-        {
-            return item.Name.Equals("Aged Brie");
-        }
-        private bool IsConcert(Item item)
-        {
-            return item.Name.Equals("Backstage passes to a TAFKAL80ETC concert");
-        }
-        private bool IsConjured(Item item)
-        {
-            return item.Name.Equals("Conjured Mana Cake");
-        }
-        private bool IsExpired(Item item)
-        {
-            return item.SellIn < 0;
-        }
-        private void DecreaseQuality(Item item)
-        {
-            if (item.Quality > 0)
-                item.Quality--;
-        }
-        private void IncreaseQuality(Item item)
-        {
-            if (item.Quality < 50)
-                item.Quality++;
         }
     }
+
 
     public class Item
     {
